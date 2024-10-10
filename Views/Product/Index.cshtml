@@ -1,0 +1,33 @@
+﻿@model IEnumerable<QHRMProject.Models.Product>
+
+<h1 class="h1_addpro">Products</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Created</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var products in Model)
+        {
+            <tr>
+                <td>@products.SN</td>
+                <td>@products.ProductName</td>
+                <td>@products.Description</td>
+                <td>@products.Created</td>
+                <td>@products.Price</td>
+                <td>
+                    <a href="/Product/Edit/@products.SN" class="btn btn-warning">Edit</a>
+                    <a href="/Product/Delete/@products.SN" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a id="h1_addpro" href="/Product/Add" class="btn btn-primary">Add Product</a>
